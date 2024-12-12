@@ -67,6 +67,7 @@ resource "aws_instance" "my_public_server" {
   instance_type           = "t2.micro"
   key_name = "jos"
   security_groups = [aws_security_group.joston-security.id]
+  user_data  = templatefile("./ansible.sh", {})
   tags= {
     Name = "joston's_public_server"
   }
